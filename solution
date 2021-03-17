@@ -1,0 +1,63 @@
+// Aufgabe 2
+ // Häufigkeit der Buchstaben
+function countFrequency(genomeCode) {
+    let count = {
+        length: genomeCode.length,
+        A: 0,
+        C: 0,
+        G: 0,
+        T: 0
+    } ;
+    for(let code of genomeCode) {
+        count[code] += 1;
+    }
+    return count;
+}
+ 
+// wandeln wir die Häufigkeit in Prozent um 
+function countPercent(frequency) {
+    return {
+        A: frequency['A']/frequency['length'],
+        C: frequency['C']/frequency['length'],
+        G: frequency['G']/frequency['length'],
+        T: frequency['T']/frequency['length']
+    }
+}
+------------------------------------------------
+// 1) Brutto rechnen
+let calculateTax = (bill) => {
+    const MWST = 0.19;
+    return Object.assign({withtax: (bill['net'] * (1 + MWST))
+}, bill)};
+ 
+// 2) Brutto pro Einheit
+let pricePerUnit = (bill) => Object.assign({pricePerUnit:bill['withtax']/bill['quatity']}, bill);
+ 
+// 3) Brutto pro Einheit vergleichen
+let comparePrice = (bill1, bill2) => bill1.pricePerUnit - bill2.pricePerUnit;
+-------------------------------------------------------------------------------
+//count the number of permutation
+const SUITES= ["Rock", "Paper","Scissors"];
+let count= {}
+let n = parseInt(prompt("Enter a Value"), 10); 
+  for(let i = 0; i< n; ++i ){
+    let suites = SUITES;
+    shuffle(suites);
+let permutation = suites.join("-");
+    if(count.hasOwnProperty(permutation)) {
+    count[permutation] += 1;
+    }
+    else{
+    count[permutation]= 0;
+    }
+    }
+    console.log(count);
+    };
+function shuffle(a) {
+  let n = a.length;
+  for( let i = 0; i< n; ++i) {
+     letr = Math.floor((n- i) * Math.random())+ i ;
+     [a[i], a[r]]= [a[r], a[i]];
+     }
+     }
+ 
